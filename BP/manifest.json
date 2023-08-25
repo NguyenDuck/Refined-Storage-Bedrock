@@ -1,0 +1,67 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"NguyenDuck"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.6.1"
+			],
+			"dash": [
+				"0.10.10"
+			]
+		}
+	},
+	"header": {
+		"name": "Refined Storage Bedrock",
+		"description": "",
+		"min_engine_version": [
+			1,
+			20,
+			10
+		],
+		"uuid": "760e4331-7f10-48e0-b4f1-17c475166c63",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "fd4bb749-a7c7-498e-9817-009c20fa0984",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "a57ac667-b8f3-47d8-8914-5a9bb2b0d74e",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "2fab341e-170c-4bbd-b170-996123b80745",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.4.0-beta"
+		}
+	]
+}

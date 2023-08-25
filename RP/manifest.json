@@ -1,0 +1,42 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"NguyenDuck"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.6.1"
+			],
+			"dash": [
+				"0.10.10"
+			]
+		}
+	},
+	"header": {
+		"name": "Refined Storage Bedrock",
+		"description": "",
+		"min_engine_version": [
+			1,
+			20,
+			10
+		],
+		"uuid": "2fab341e-170c-4bbd-b170-996123b80745",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "a8fb3e95-bc4c-45df-be9a-f441ff8c22e4",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	]
+}

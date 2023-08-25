@@ -1,0 +1,14 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Refined Storage Bedrock",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"cable": {
+			"textures": "textures/block/cable"
+		},
+		"importer": {
+			"textures": "textures/block/importer"
+		}
+	}
+}
