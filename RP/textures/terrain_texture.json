@@ -5,10 +5,10 @@
 	"texture_name": "atlas.terrain",
 	"texture_data": {
 		"cable": {
-			"textures": "textures/block/cable"
+			"textures": "textures/blocks/cable"
 		},
 		"importer": {
-			"textures": "textures/block/importer"
+			"textures": "textures/blocks/importer"
 		}
 	}
 }

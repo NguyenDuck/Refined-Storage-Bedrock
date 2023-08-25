@@ -2,3 +2,4 @@ refinedstorage=Refined Storage
 
 tile.refinedstorage:cable.name=Cable
 tile.refinedstorage:importer.name=Importer
+tile.refinedstorage:exporter.name=Exporter
