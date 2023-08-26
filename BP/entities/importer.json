@@ -1,0 +1,92 @@
+{
+    "format_version": "1.19.70",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "refinedstorage:importer",
+            "is_summonable": true
+        },
+        "component_groups": {
+            "refinedstorage:despawn": {
+                "minecraft:instant_despawn": {
+                    "remove_child_entities": true
+                }
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:collision_box": {
+                "height": 0.0001,
+                "width": 0.0001
+            },
+            "minecraft:custom_hit_test": {
+                "hitboxes": [
+                    {
+                        "pivot": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "height": 0.0001,
+                        "width": 0.0001
+                    }
+                ]
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:inside_block_notifier": {
+                "block_list": [
+                    {
+                        "block": {
+                            "name": "refinedstorage:importer"
+                        },
+                        "exited_block_event": {
+                            "event": "refinedstorage:despawn"
+                        }
+                    }
+                ]
+            },
+            "minecraft:environment_sensor": {
+                "triggers": {
+                    "filters": {
+                        "operator": "not",
+                        "test": "in_block",
+                        "value": "refinedstorage:importer"
+                    },
+                    "event": "refinedstorage:despawn"
+                }
+            },
+            "minecraft:timer": {
+                "looping": true,
+                "time": [
+                    0.5,
+                    0.5
+                ],
+                "time_down_event": {
+                    "event": "refinedstorage:on_tick"
+                }
+            }
+        },
+        "events": {
+            "refinedstorage:despawn": {
+                "add": {
+                    "component_groups": [
+                        "refinedstorage:despawn"
+                    ]
+                }
+            },
+            "refinedstorage:on_tick": {
+                "run_command": {
+                    "command": "/scriptevent refinedstorage:importer pullItem"
+                }
+            }
+        }
+    }
+}
