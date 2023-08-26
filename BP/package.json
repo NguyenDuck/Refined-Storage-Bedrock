@@ -1,0 +1,15 @@
+{
+  "name": "refined-storage-bedrock-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prepare.ts",
+  "scripts": {
+    "prepare": "ts-node prepare.ts"
+  },
+  "author": "NguyenDuck",
+  "license": "MIT",
+  "devDependencies": {
+    "@minecraft/server": "^1.4.0-beta.1.20.10-stable",
+    "@types/node": "^20.5.6"
+  }
+}

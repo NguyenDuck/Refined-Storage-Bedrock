@@ -32,29 +32,13 @@
                     false,
                     true
                 ],
-                "refinedstorage:module_north": [
-                    false,
-                    true
-                ],
-                "refinedstorage:module_south": [
-                    false,
-                    true
-                ],
-                "refinedstorage:module_east": [
-                    false,
-                    true
-                ],
-                "refinedstorage:module_west": [
-                    false,
-                    true
-                ],
-                "refinedstorage:module_up": [
-                    false,
-                    true
-                ],
-                "refinedstorage:module_down": [
-                    false,
-                    true
+                "refinedstorage:module_direction": [
+                    "north",
+                    "south",
+                    "east",
+                    "west",
+                    "up",
+                    "down"
                 ],
                 "refinedstorage:placed": [
                     false,
@@ -81,18 +65,18 @@
             "minecraft:geometry": {
                 "identifier": "geometry.exporter",
                 "bone_visibility": {
-                    "module_north": "q.block_property('refinedstorage:module_north')",
-                    "module_south": "q.block_property('refinedstorage:module_south') || !q.block_property('refinedstorage:placed')",
-                    "module_east": "q.block_property('refinedstorage:module_east')",
-                    "module_west": "q.block_property('refinedstorage:module_west')",
-                    "module_up": "q.block_property('refinedstorage:module_up')",
-                    "module_down": "q.block_property('refinedstorage:module_down')",
-                    "north": "!q.block_property('refinedstorage:module_north') && q.block_property('refinedstorage:north')",
-                    "south": "!q.block_property('refinedstorage:module_south') && q.block_property('refinedstorage:south')",
-                    "east": "!q.block_property('refinedstorage:module_east') && q.block_property('refinedstorage:east') || !q.block_property('refinedstorage:placed')",
-                    "west": "!q.block_property('refinedstorage:module_west') && q.block_property('refinedstorage:west') || !q.block_property('refinedstorage:placed')",
-                    "up": "!q.block_property('refinedstorage:module_up') && q.block_property('refinedstorage:up')",
-                    "down": "!q.block_property('refinedstorage:module_down') && q.block_property('refinedstorage:down')"
+                    "module_north": "q.block_property('refinedstorage:module_direction') == 'south'",
+                    "module_south": "q.block_property('refinedstorage:module_direction') == 'north' || !q.block_property('refinedstorage:placed')",
+                    "module_east": "q.block_property('refinedstorage:module_direction') == 'west'",
+                    "module_west": "q.block_property('refinedstorage:module_direction') == 'east'",
+                    "module_up": "q.block_property('refinedstorage:module_direction') == 'down'",
+                    "module_down": "q.block_property('refinedstorage:module_direction') == 'up'",
+                    "north": "q.block_property('refinedstorage:module_direction') != 'south' && q.block_property('refinedstorage:north')",
+                    "south": "q.block_property('refinedstorage:module_direction') != 'north' && q.block_property('refinedstorage:south')",
+                    "east": "q.block_property('refinedstorage:module_direction') != 'west' && q.block_property('refinedstorage:east') || !q.block_property('refinedstorage:placed')",
+                    "west": "q.block_property('refinedstorage:module_direction') != 'east' && q.block_property('refinedstorage:west') || !q.block_property('refinedstorage:placed')",
+                    "up": "q.block_property('refinedstorage:module_direction') != 'down' && q.block_property('refinedstorage:up')",
+                    "down": "q.block_property('refinedstorage:module_direction') != 'up' && q.block_property('refinedstorage:down')"
                 }
             },
             "minecraft:material_instances": {
@@ -112,8 +96,11 @@
                     "event": "refinedstorage:component_connect"
                 }
             },
+            "minecraft:on_placed": {
+                "event": "refinedstorage:placed"
+            },
             "minecraft:on_player_placing": {
-                "event": "refinedstorage:component_rotate"
+                "event": "refinedstorage:player_placed"
             }
         },
         "events": {
@@ -127,15 +114,19 @@
                     "refinedstorage:down": "q.block_neighbor_has_any_tag(0, -1, 0, 'refinedstorage:component')"
                 }
             },
-            "refinedstorage:component_rotate": {
+            "refinedstorage:player_placed": {
                 "set_block_property": {
-                    "refinedstorage:module_north": "q.block_property('minecraft:block_face') == 'south'",
-                    "refinedstorage:module_south": "q.block_property('minecraft:block_face') == 'north'",
-                    "refinedstorage:module_east": "q.block_property('minecraft:block_face') == 'west'",
-                    "refinedstorage:module_west": "q.block_property('minecraft:block_face') == 'east'",
-                    "refinedstorage:module_up": "q.block_property('minecraft:block_face') == 'down'",
-                    "refinedstorage:module_down": "q.block_property('minecraft:block_face') == 'up'",
+                    "refinedstorage:module_direction": "q.block_property('minecraft:block_face')",
                     "refinedstorage:placed": true
+                }
+            },
+            "refinedstorage:placed": {
+                "set_block_property": {
+                    "refinedstorage:module_direction": "q.block_property('minecraft:block_face')",
+                    "refinedstorage:placed": true
+                },
+                "run_command": {
+                    "command": "/execute positioned ~~~ unless entity @e[type=refinedstorage:exporter, c=1, r=0.5] run summon refinedstorage:exporter"
                 }
             }
         }
