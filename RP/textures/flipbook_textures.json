@@ -1,7 +1,7 @@
 [
     {
-        "flipbook_texture": "textures/blocks/controller",
-        "atlas_tile": "rs_controller",
-        "ticks_per_frame": 5
+        "flipbook_texture": "textures/blocks/controller/on",
+        "atlas_tile": "controller_on",
+        "ticks_per_frame": 2
     }
 ]

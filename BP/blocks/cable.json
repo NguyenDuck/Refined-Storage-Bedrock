@@ -8,41 +8,20 @@
                 "group": "itemGroup.name.refinedstorage.cable"
             },
             "properties": {
-                "refinedstorage:north": [
-                    false,
-                    true
-                ],
-                "refinedstorage:south": [
-                    false,
-                    true
-                ],
-                "refinedstorage:east": [
-                    false,
-                    true
-                ],
-                "refinedstorage:west": [
-                    false,
-                    true
-                ],
-                "refinedstorage:up": [
-                    false,
-                    true
-                ],
-                "refinedstorage:down": [
-                    false,
-                    true
-                ],
-                "refinedstorage:placed": [
-                    false,
-                    true
-                ]
+                "refinedstorage:north": [false, true],
+                "refinedstorage:south": [false, true],
+                "refinedstorage:east": [false, true],
+                "refinedstorage:west": [false, true],
+                "refinedstorage:up": [false, true],
+                "refinedstorage:down": [false, true],
+                "refinedstorage:placed": [false, true]
             }
         },
         "components": {
             "tag:refinedstorage:cable": {},
-            "tag:refinedstorage:component": {},
+            "tag:refinedstorage:connectable": {},
             "minecraft:destructible_by_mining": {
-                "seconds_to_destroy": 0.35
+                "seconds_to_destroy": 0.525
             },
             "minecraft:destructible_by_explosion": {
                 "explosion_resistance": 0.35
@@ -65,31 +44,11 @@
                     "ambient_occlusion": false
                 }
             },
-            "minecraft:queued_ticking": {
-                "interval_range": [
-                    10,
-                    10
-                ],
-                "looping": true,
-                "on_tick": {
-                    "event": "refinedstorage:component_connect"
-                }
-            },
             "minecraft:on_player_placing": {
                 "event": "refinedstorage:component_placed"
             }
         },
         "events": {
-            "refinedstorage:component_connect": {
-                "set_block_property": {
-                    "refinedstorage:north": "q.block_neighbor_has_any_tag(0, 0, -1, 'refinedstorage:component')",
-                    "refinedstorage:south": "q.block_neighbor_has_any_tag(0, 0, 1, 'refinedstorage:component')",
-                    "refinedstorage:east": "q.block_neighbor_has_any_tag(1, 0, 0, 'refinedstorage:component')",
-                    "refinedstorage:west": "q.block_neighbor_has_any_tag(-1, 0, 0, 'refinedstorage:component')",
-                    "refinedstorage:up": "q.block_neighbor_has_any_tag(0, 1, 0, 'refinedstorage:component')",
-                    "refinedstorage:down": "q.block_neighbor_has_any_tag(0, -1, 0, 'refinedstorage:component')"
-                }
-            },
             "refinedstorage:component_placed": {
                 "set_block_property": {
                     "refinedstorage:placed": true

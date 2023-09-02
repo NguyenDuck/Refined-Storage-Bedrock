@@ -1,0 +1,121 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "refinedstorage:crafting_monitor",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.refinedstorage.monitor"
+            },
+            "properties": {
+                "refinedstorage:enabled": [false, true],
+                "refinedstorage:placed": [false, true]
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": ["minecraft:cardinal_direction"],
+                    "y_rotation_offset": 180.0
+                }
+            }
+        },
+        "components": {
+            "tag:refinedstorage:component": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.75
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
+            },
+            "minecraft:material_instances": {
+                "up": {
+                    "texture": "general_up"
+                },
+                "down": {
+                    "texture": "general_down"
+                },
+                "north": {
+                    "texture": "crafting_monitor_on"
+                },
+                "south": {
+                    "texture": "general_south"
+                },
+                "east": {
+                    "texture": "general_east"
+                },
+                "west": {
+                    "texture": "general_west"
+                }
+            },
+            "minecraft:unit_cube": {},
+            "minecraft:on_player_placing": {
+                "event": "refinedstorage:component_placed"
+            }
+        },
+        "events": {
+            "refinedstorage:component_placed": {
+                "set_block_property": {
+                    "refinedstorage:placed": true
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_property('refinedstorage:placed') && !q.block_property('refinedstorage:enabled')",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "general_up"
+                        },
+                        "down": {
+                            "texture": "general_down"
+                        },
+                        "north": {
+                            "texture": "crafting_monitor_off"
+                        },
+                        "south": {
+                            "texture": "general_south"
+                        },
+                        "east": {
+                            "texture": "general_east"
+                        },
+                        "west": {
+                            "texture": "general_west"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 0, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 180, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 90, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, -90, 0]
+                    }
+                }
+            }
+        ]
+    }
+}

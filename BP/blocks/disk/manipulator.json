@@ -1,0 +1,161 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "refinedstorage:disk_manipulator",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.refinedstorage.drive"
+            },
+            "properties": {
+                "refinedstorage:enabled": [
+                    false,
+                    true
+                ],
+                "refinedstorage:slot_1": [
+                    false,
+                    true
+                ],
+                "refinedstorage:slot_2": [
+                    false,
+                    true
+                ],
+                "refinedstorage:slot_3": [
+                    false,
+                    true
+                ],
+                "refinedstorage:slot_4": [
+                    false,
+                    true
+                ],
+                "refinedstorage:slot_5": [
+                    false,
+                    true
+                ],
+                "refinedstorage:slot_6": [
+                    false,
+                    true
+                ]
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ],
+                    "y_rotation_offset": 180.0
+                }
+            }
+        },
+        "components": {
+            "tag:refinedstorage:component": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.75
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.disk_manipulator",
+                "bone_visibility": {
+                    "slot_1": "q.block_property('refinedstorage:slot_1')",
+                    "slot_2": "q.block_property('refinedstorage:slot_2')",
+                    "slot_3": "q.block_property('refinedstorage:slot_3')",
+                    "slot_4": "q.block_property('refinedstorage:slot_4')",
+                    "slot_5": "q.block_property('refinedstorage:slot_5')",
+                    "slot_6": "q.block_property('refinedstorage:slot_6')"
+                }
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "general_disk_manipulator_side",
+                    "render_method": "double_sided"
+                },
+                "down": {
+                    "texture": "general_down",
+                    "render_method": "double_sided"
+                },
+                "north": {
+                    "texture": "disk_manipulator_north_off",
+                    "render_method": "double_sided"
+                },
+                "south": {
+                    "texture": "general_disk_off",
+                    "render_method": "double_sided"
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_property('refinedstorage:enabled')",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "general_disk_manipulator_side",
+                            "render_method": "double_sided"
+                        },
+                        "down": {
+                            "texture": "general_down",
+                            "render_method": "double_sided"
+                        },
+                        "north": {
+                            "texture": "disk_manipulator_north_on",
+                            "render_method": "double_sided"
+                        },
+                        "south": {
+                            "texture": "general_disk_on",
+                            "render_method": "double_sided"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,98 +1,131 @@
 {
-	"resource_pack_name": "vanilla",
+	"resource_pack_name": "Refined Storage Bedrock",
 	"texture_name": "atlas.terrain",
 	"padding": 8,
 	"num_mip_levels": 4,
 	"texture_data": {
-	  "cable": {
-		"textures": "textures/blocks/cable"
-	  },
-	  "importer": {
-		"textures": "textures/blocks/importer"
-	  },
-	  "rs_controller": {
-		"textures": "textures/blocks/controller"
-	  },
-	  "rs_controller_off": {
-		"textures": "textures/blocks/controller_off"
-	  },
-	  "crafting_monitor": {
-		"textures": "textures/blocks/crafting_monitor"
-	  },
-	  "crafting_monitor_off": {
-		"textures": "textures/blocks/crafting_monitor_off"
-	  },
-	  "crafting_grid": {
-		"textures": "textures/blocks/crafting_grid"
-	  },
-	  "crafting_grid_off": {
-		"textures": "textures/blocks/crafting_grid_off"
-	  },
-	  "crafter_manager": {
-		"textures": "textures/blocks/crafter_manager"
-	  },
-	  "crafter_manager_off": {
-		"textures": "textures/blocks/crafter_manager_off"
-	  },
-	  "disk_drive": {
-		"textures": "textures/blocks/disk_drive"
-	  },
-	  "disk_drive_off": {
-		"textures": "textures/blocks/disk_drive_off"
-	  },
-	  "wireless_transmitter": {
-		"textures": "textures/blocks/wireless_transmitter"
-	  },
-	  "wireless_transmitter_off": {
-		"textures": "textures/blocks/wireless_transmitter_off"
-	  },
-	  "network_transmitter": {
-		"textures": "textures/blocks/network_transmitter"
-	  },
-	  "network_transmitter_off": {
-		"textures": "textures/blocks/network_transmitter_off"
-	  },
-	  "network_receiver": {
-		"textures": "textures/blocks/network_receiver"
-	  },
-	  "network_receiver_off": {
-		"textures": "textures/blocks/network_receiver_off"
-	  },
-	  "relay": {
-		"textures": "textures/blocks/relay"
-	  },
-	  "relay_off": {
-		"textures": "textures/blocks/relay_off"
-	  },
-	  "security_manager": {
-		"textures": "textures/blocks/security_manager"
-	  },
-	  "security_manager_off": {
-		"textures": "textures/blocks/security_manager_off"
-	  },
-	  "crafter": {
-		"textures": "textures/blocks/crafter"
-	  },
-	  "crafter_off": {
-		"textures": "textures/blocks/crafter_off"
-	  },
-	  "disk_manipulator": {
-		"textures": "textures/blocks/disk_manipulator"
-	  },
-	  "disk_manipulator_off": {
-		"textures": "textures/blocks/disk_manipulator_off"
-	  },
-	  "storage_block_1k": {
-		"textures": "textures/blocks/1k_storage_block"
-	  },
-	  "storage_block_4k": {
-		"textures": "textures/blocks/4k_storage_block"
-	  },
-	  "storage_block_16k": {
-		"textures": "textures/blocks/16k_storage_block"
-	  },
-	  "storage_block_64k": {
-		"textures": "textures/blocks/64k_storage_block"
-	  }
+		"cable": {
+			"textures": "textures/blocks/cable"
+		},
+		"importer": {
+			"textures": "textures/blocks/importer"
+		},
+		"general_up": {
+			"textures": "textures/blocks/general/up"
+		},
+		"general_down": {
+			"textures": "textures/blocks/general/down"
+		},
+		"general_east": {
+			"textures": "textures/blocks/general/east"
+		},
+		"general_south": {
+			"textures": "textures/blocks/general/south"
+		},
+		"general_west": {
+			"textures": "textures/blocks/general/west"
+		},
+		"controller_on": {
+			"textures": "textures/blocks/controller/on"
+		},
+		"controller_off": {
+			"textures": "textures/blocks/controller/off"
+		},
+		"crafting_monitor_on": {
+			"textures": "textures/blocks/crafting_monitor/on"
+		},
+		"crafting_monitor_off": {
+			"textures": "textures/blocks/crafting_monitor/off"
+		},
+		"crafting_grid_on": {
+			"textures": "textures/blocks/crafting_grid/on"
+		},
+		"crafting_grid_off": {
+			"textures": "textures/blocks/crafting_grid/off"
+		},
+		"crafter_manager_on": {
+			"textures": "textures/blocks/crafter_manager/on"
+		},
+		"crafter_manager_off": {
+			"textures": "textures/blocks/crafter_manager/off"
+		},
+		"disk_drive_up": {
+			"textures": "textures/blocks/disk_drive/up"
+		},
+		"disk_drive_side": {
+			"textures": "textures/blocks/general/disk/drive_side"
+		},
+		"disk_drive_north": {
+			"textures": "textures/blocks/disk_drive/north"
+		},
+		"general_disk_manipulator_side": {
+			"textures": "textures/blocks/general/disk/manipulator_side"
+		},
+		"disk_manipulator_north_on": {
+			"textures": "textures/blocks/disk_manipulator/north_on"
+		},
+		"disk_manipulator_north_off": {
+			"textures": "textures/blocks/disk_manipulator/north_off"
+		},
+		"general_disk_on": {
+			"textures": "textures/blocks/general/disk/south_on"
+		},
+		"general_disk_off": {
+			"textures": "textures/blocks/general/disk/south_off"
+		},
+		"wireless_transmitter_on": {
+			"textures": "textures/blocks/wireless/transmitter/on"
+		},
+		"wireless_transmitter_off": {
+			"textures": "textures/blocks/wireless/transmitter/off"
+		},
+		"network_transmitter_on": {
+			"textures": "textures/blocks/network/transmitter/on"
+		},
+		"network_transmitter_off": {
+			"textures": "textures/blocks/network/transmitter/off"
+		},
+		"network_receiver_on": {
+			"textures": "textures/blocks/network/receiver/on"
+		},
+		"network_receiver_off": {
+			"textures": "textures/blocks/network/receiver/off"
+		},
+		"relay": {
+			"textures": "textures/blocks/relay"
+		},
+		"relay_off": {
+			"textures": "textures/blocks/relay_off"
+		},
+		"security_manager": {
+			"textures": "textures/blocks/security_manager/on"
+		},
+		"security_manager_off": {
+			"textures": "textures/blocks/security_manager/off"
+		},
+		"crafter_side_on": {
+			"textures": "textures/blocks/crafter/side_on"
+		},
+		"crafter_side_off": {
+			"textures": "textures/blocks/crafter/side_off"
+		},
+		"crafter_up_on": {
+			"textures": "textures/blocks/crafter/up_on"
+		},
+		"crafter_up_off": {
+			"textures": "textures/blocks/crafter/up_off"
+		},
+		"storage_block_1k": {
+			"textures": "textures/blocks/storage_block/1k"
+		},
+		"storage_block_4k": {
+			"textures": "textures/blocks/storage_block/4k"
+		},
+		"storage_block_16k": {
+			"textures": "textures/blocks/storage_block/16k"
+		},
+		"storage_block_64k": {
+			"textures": "textures/blocks/storage_block/64k"
+		}
 	}
-  }
+}

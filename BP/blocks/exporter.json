@@ -1,0 +1,96 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "refinedstorage:exporter",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.refinedstorage.exporter"
+            },
+            "properties": {
+                "refinedstorage:north": [
+                    false,
+                    true
+                ],
+                "refinedstorage:south": [
+                    false,
+                    true
+                ],
+                "refinedstorage:east": [
+                    false,
+                    true
+                ],
+                "refinedstorage:west": [
+                    false,
+                    true
+                ],
+                "refinedstorage:up": [
+                    false,
+                    true
+                ],
+                "refinedstorage:down": [
+                    false,
+                    true
+                ],
+                "refinedstorage:placed": [
+                    false,
+                    true
+                ]
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "components": {
+            "tag:refinedstorage:exporter": {},
+            "tag:refinedstorage:connectable": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.525
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.35
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.exporter",
+                "bone_visibility": {
+                    "module_north": "q.block_property('minecraft:block_face') == 'south'",
+                    "module_south": "q.block_property('minecraft:block_face') == 'north' || !q.block_property('refinedstorage:placed')",
+                    "module_east": "q.block_property('minecraft:block_face') == 'west'",
+                    "module_west": "q.block_property('minecraft:block_face') == 'east'",
+                    "module_up": "q.block_property('minecraft:block_face') == 'down'",
+                    "module_down": "q.block_property('minecraft:block_face') == 'up'",
+                    "north": "q.block_property('minecraft:block_face') != 'south' && q.block_property('refinedstorage:north')",
+                    "south": "q.block_property('minecraft:block_face') != 'north' && q.block_property('refinedstorage:south')",
+                    "east": "q.block_property('minecraft:block_face') != 'west' && q.block_property('refinedstorage:east') || !q.block_property('refinedstorage:placed')",
+                    "west": "q.block_property('minecraft:block_face') != 'east' && q.block_property('refinedstorage:west') || !q.block_property('refinedstorage:placed')",
+                    "up": "q.block_property('minecraft:block_face') != 'down' && q.block_property('refinedstorage:up')",
+                    "down": "q.block_property('minecraft:block_face') != 'up' && q.block_property('refinedstorage:down')"
+                }
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "importer",
+                    "render_method": "blend",
+                    "ambient_occlusion": false
+                }
+            },
+            "minecraft:on_player_placing": {
+                "event": "refinedstorage:component_placed"
+            }
+        },
+        "events": {
+            "refinedstorage:component_placed": {
+                "set_block_property": {
+                    "refinedstorage:placed": true
+                },
+                "run_command": {
+                    "command": "/execute positioned ~~~ unless entity @e[type=refinedstorage:exporter, c=1, r=0.5] run summon refinedstorage:exporter"
+                }
+            }
+        }
+    }
+}
