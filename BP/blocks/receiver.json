@@ -1,0 +1,23 @@
+{
+  "format_version": "1.19.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "choigame:wireless_lever_reciever",
+      "category": "equipment"
+    },
+    "minecraft:block_light_absorption": 0.0,
+    "minecraft:block_light_emission": 0.0,
+    "minecraft:friction": 0.0,
+    "minecraft:map_color": "#AB2200",
+    "minecraft:destroy_time": 500.0,
+    "minecraft:explosion_resistance": 30.0,
+    "components": {
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "choigame:wireless_lever_reciever",
+          "render_method": "blend"
+        }
+      }
+    }
+  }
+}

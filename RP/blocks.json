@@ -1,7 +1,131 @@
 {
 	"format_version": [
-		1,
-		1,
-		0
-	]
-}
+	  1,
+	  1,
+	  0
+	],
+	"cable": {
+	  "sound": "metal",
+	  "textures": "cable"
+	},
+	"importer": {
+	  "sound": "metal",
+	  "textures": "importer"
+	},
+	"rs_controller": {
+	  "sound": "metal",
+	  "textures": "rs_controller"
+	},
+	"rs_controller_off": {
+	  "sound": "metal",
+	  "textures": "rs_controller_off"
+	},
+	"crafting_monitor": {
+	  "sound": "metal",
+	  "textures": "crafting_monitor"
+	},
+	"crafting_monitor_off": {
+	  "sound": "metal",
+	  "textures": "crafting_monitor_off"
+	},
+	"crafting_grid": {
+	  "sound": "metal",
+	  "textures": "crafting_grid"
+	},
+	"crafting_grid_off": {
+	  "sound": "metal",
+	  "textures": "crafting_grid_off"
+	},
+	"crafter_manager": {
+	  "sound": "metal",
+	  "textures": "crafter_manager"
+	},
+	"crafter_manager_off": {
+	  "sound": "metal",
+	  "textures": "crafter_manager_off"
+	},
+	"disk_drive": {
+	  "sound": "metal",
+	  "textures": "disk_drive"
+	},
+	"disk_drive_off": {
+	  "sound": "metal",
+	  "textures": "disk_drive_off"
+	},
+	"wireless_transmitter": {
+	  "sound": "metal",
+	  "textures": "wireless_transmitter"
+	},
+	"wireless_transmitter_off": {
+	  "sound": "metal",
+	  "textures": "wireless_transmitter_off"
+	},
+	"network_transmitter": {
+	  "sound": "metal",
+	  "textures": "network_transmitter"
+	},
+	"network_transmitter_off": {
+	  "sound": "metal",
+	  "textures": "network_transmitter_off"
+	},
+	"network_receiver": {
+	  "sound": "metal",
+	  "textures": "network_receiver"
+	},
+	"network_receiver_off": {
+	  "sound": "metal",
+	  "textures": "network_receiver_off"
+	},
+	"relay": {
+	  "sound": "metal",
+	  "textures": "relay"
+	},
+	"relay_off": {
+	  "sound": "metal",
+	  "textures": "relay_off"
+	},
+	"security_manager": {
+	  "sound": "metal",
+	  "textures": "security_manager"
+	},
+	"security_manager_off": {
+	  "sound": "metal",
+	  "textures": "security_manager_off"
+	},
+	"crafter": {
+	  "sound": "metal",
+	  "textures": "crafter"
+	},
+	"crafter_off": {
+	  "sound": "metal",
+	  "textures": "crafter_off"
+	},
+	"disk_manipulator": {
+	  "sound": "metal",
+	  "textures": "disk_manipulator"
+	},
+	"disk_manipulator_off": {
+	  "sound": "metal",
+	  "textures": "disk_manipulator_off"
+	},
+	"disk_manipulator_off": {
+	  "sound": "metal",
+	  "textures": "disk_manipulator_off"
+	},
+	"storage_block_1k": {
+	  "sound": "metal",
+	  "textures": "storage_block_1k"
+	},
+	"storage_block_4k": {
+	  "sound": "metal",
+	  "textures": "storage_block_4k"
+	},
+	"storage_block_16k": {
+	  "sound": "metal",
+	  "textures": "storage_block_16k"
+	},
+	"storage_block_64k": {
+	  "sound": "metal",
+	  "textures": "storage_block_64k"
+	}
+  }

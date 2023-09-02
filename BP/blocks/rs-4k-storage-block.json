@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:block": {
+    "description": {
+      "identifier": "refinedstorage:storage_block_4k",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.refinedstorage.storage"
+      }
+    },
+    "components": {
+      "tag:refinedstorage:component": {},
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.7
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.block1face"
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "storage_block_4k",
+          "render_method": "blend",
+          "ambient_occlusion": false
+        }
+      },
+      "minecraft:on_player_placing": {
+        "event": "refinedstorage:component_placed"
+      }
+    },
+    "events": {
+      "refinedstorage:component_placed": {}
+    }
+  }
+}
