@@ -91,17 +91,41 @@
 		"network_receiver_off": {
 			"textures": "textures/blocks/network/receiver/off"
 		},
-		"relay": {
-			"textures": "textures/blocks/relay"
+		"relay_on": {
+			"textures": "textures/blocks/relay/on"
 		},
 		"relay_off": {
-			"textures": "textures/blocks/relay_off"
+			"textures": "textures/blocks/relay/off"
 		},
-		"security_manager": {
-			"textures": "textures/blocks/security_manager/on"
+		"security_manager_north_on": {
+			"textures": "textures/blocks/security_manager/north_on"
 		},
-		"security_manager_off": {
-			"textures": "textures/blocks/security_manager/off"
+		"security_manager_south_on": {
+			"textures": "textures/blocks/security_manager/south_on"
+		},
+		"security_manager_east_on": {
+			"textures": "textures/blocks/security_manager/east_on"
+		},
+		"security_manager_west_on": {
+			"textures": "textures/blocks/security_manager/west_on"
+		},
+		"security_manager_up_on": {
+			"textures": "textures/blocks/security_manager/up_on"
+		},
+		"security_manager_north_off": {
+			"textures": "textures/blocks/security_manager/north_off"
+		},
+		"security_manager_south_off": {
+			"textures": "textures/blocks/security_manager/south_off"
+		},
+		"security_manager_east_off": {
+			"textures": "textures/blocks/security_manager/east_off"
+		},
+		"security_manager_west_off": {
+			"textures": "textures/blocks/security_manager/west_off"
+		},
+		"security_manager_up_off": {
+			"textures": "textures/blocks/security_manager/up_off"
 		},
 		"crafter_side_on": {
 			"textures": "textures/blocks/crafter/side_on"

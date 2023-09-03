@@ -61,13 +61,13 @@
                     "module_south": "q.block_property('minecraft:block_face') == 'north' || !q.block_property('refinedstorage:placed')",
                     "module_east": "q.block_property('minecraft:block_face') == 'west'",
                     "module_west": "q.block_property('minecraft:block_face') == 'east'",
-                    "module_up": "q.block_property('minecraft:block_face') == 'down'",
+                    "module_up": "q.block_property('minecraft:block_face') == 'down' && q.block_property('refinedstorage:placed')",
                     "module_down": "q.block_property('minecraft:block_face') == 'up'",
                     "north": "!q.block_property('minecraft:block_face') == 'south' && q.block_property('refinedstorage:north')",
                     "south": "!q.block_property('minecraft:block_face') == 'north' && q.block_property('refinedstorage:south')",
                     "east": "!q.block_property('minecraft:block_face') == 'west' && q.block_property('refinedstorage:east') || !q.block_property('refinedstorage:placed')",
                     "west": "!q.block_property('minecraft:block_face') == 'east' && q.block_property('refinedstorage:west') || !q.block_property('refinedstorage:placed')",
-                    "up": "!q.block_property('minecraft:block_face') == 'down' && q.block_property('refinedstorage:up')",
+                    "up": "!q.block_property('minecraft:block_face') == 'down' && q.block_property('refinedstorage:up') && q.block_property('refinedstorage:placed')",
                     "down": "!q.block_property('minecraft:block_face') == 'up' && q.block_property('refinedstorage:down')"
                 }
             },

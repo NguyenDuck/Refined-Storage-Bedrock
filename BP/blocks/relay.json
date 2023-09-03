@@ -8,59 +8,48 @@
                 "group": "itemGroup.name.refinedstorage.utility"
             },
             "properties": {
-                "refinedstorage:enabled": [true, false]
+                "refinedstorage:enabled": [
+                    false,
+                    true
+                ],
+                "refinedstorage:placed": [
+                    false,
+                    true
+                ]
             }
         },
         "components": {
             "tag:refinedstorage:component": {},
             "minecraft:destructible_by_mining": {
-                "seconds_to_destroy": 1.5
+                "seconds_to_destroy": 0.75
             },
             "minecraft:destructible_by_explosion": {
-                "explosion_resistance": 0.7
-            },
-            "minecraft:geometry": {
-                "identifier": "geometry.block1face"
+                "explosion_resistance": 0.5
             },
             "minecraft:material_instances": {
                 "*": {
-                    "texture": "relay_off",
-                    "render_method": "alpha_test",
-                    "ambient_occlusion": false
+                    "texture": "relay_on"
                 }
             },
             "minecraft:on_player_placing": {
                 "event": "refinedstorage:component_placed"
-            }
+            },
+            "minecraft:unit_cube": {}
         },
         "events": {
             "refinedstorage:component_placed": {
                 "set_block_property": {
-                    "refinedstorage:enabled": false
+                    "refinedstorage:placed": true
                 }
             }
         },
         "permutations": [
             {
-                "condition": "query.block_property(\u0027refinedstorage:enabled\u0027) \u003d\u003d 0",
+                "condition": "q.block_property('refinedstorage:placed') && !q.block_property('refinedstorage:enabled')",
                 "components": {
                     "minecraft:material_instances": {
                         "*": {
-                            "texture": "relay_off",
-                            "render_method": "alpha_test",
-                            "ambient_occlusion": false
-                        }
-                    }
-                }
-            },
-            {
-                "condition": "query.block_property(\u0027refinedstorage:enabled\u0027) \u003d\u003d 1",
-                "components": {
-                    "minecraft:material_instances": {
-                        "*": {
-                            "texture": "relay",
-                            "render_method": "alpha_test",
-                            "ambient_occlusion": false
+                            "texture": "relay_off"
                         }
                     }
                 }
