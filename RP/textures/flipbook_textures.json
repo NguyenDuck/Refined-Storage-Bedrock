@@ -1,1 +1,7 @@
-[]
+[
+    {
+        "flipbook_texture": "textures/blocks/controller/on",
+        "atlas_tile": "controller_on",
+        "ticks_per_frame": 2
+    }
+]

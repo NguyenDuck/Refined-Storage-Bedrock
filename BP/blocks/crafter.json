@@ -1,0 +1,118 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "refinedstorage:crafter",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.refinedstorage.crafter"
+            },
+            "properties": {
+                "refinedstorage:enabled": [false, true],
+                "refinedstorage:placed": [false, true]
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": ["minecraft:facing_direction"]
+                }
+            }
+        },
+        "components": {
+            "tag:refinedstorage:component": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.75
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "crafter_side_on"
+                },
+                "up": {
+                    "texture": "crafter_up_on"
+                },
+                "down": {
+                    "texture": "general_down"
+                }
+            },
+            "minecraft:unit_cube": {},
+            "minecraft:on_player_placing": {
+                "event": "refinedstorage:component_placed"
+            }
+        },
+        "events": {
+            "refinedstorage:component_placed": {
+                "set_block_property": {
+                    "refinedstorage:placed": true
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_property('refinedstorage:placed') && !q.block_property('refinedstorage:enabled')",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "crafter_side_off"
+                        },
+                        "up": {
+                            "texture": "crafter_up_off"
+                        },
+                        "down": {
+                            "texture": "general_down"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:facing_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [90, 0, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:facing_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [-90, 0, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:facing_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [90, 90, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:facing_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [90, -90, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:facing_direction') == 'up'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [180, 0, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:facing_direction') == 'down'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 0, 0]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "refinedstorage:network_receiver",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.refinedstorage.utility"
+            },
+            "properties": {
+                "refinedstorage:enabled": [
+                    false,
+                    true
+                ],
+                "refinedstorage:placed": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "components": {
+            "tag:refinedstorage:component": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.75
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "network_receiver_on"
+                }
+            },
+            "minecraft:unit_cube": {},
+            "minecraft:on_player_placing": {
+                "event": "refinedstorage:component_placed"
+            }
+        },
+        "events": {
+            "refinedstorage:component_placed": {
+                "set_block_property": {
+                    "refinedstorage:placed": true
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_property('refinedstorage:placed') && !q.block_property('refinedstorage:enabled')",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "network_receiver_on"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

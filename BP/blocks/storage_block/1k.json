@@ -1,0 +1,27 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "refinedstorage:storage_block_1k",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.refinedstorage.storage_block"
+            }
+        },
+        "components": {
+            "tag:refinedstorage:component": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.75
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "storage_block_1k"
+                }
+            },
+            "minecraft:unit_cube": {}
+        }
+    }
+}

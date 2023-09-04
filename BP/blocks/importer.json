@@ -32,14 +32,6 @@
                     false,
                     true
                 ],
-                "refinedstorage:module_direction": [
-                    "north",
-                    "south",
-                    "east",
-                    "west",
-                    "up",
-                    "down"
-                ],
                 "refinedstorage:placed": [
                     false,
                     true
@@ -55,9 +47,9 @@
         },
         "components": {
             "tag:refinedstorage:importer": {},
-            "tag:refinedstorage:component": {},
+            "tag:refinedstorage:connectable": {},
             "minecraft:destructible_by_mining": {
-                "seconds_to_destroy": 0.35
+                "seconds_to_destroy": 0.525
             },
             "minecraft:destructible_by_explosion": {
                 "explosion_resistance": 0.35
@@ -65,18 +57,18 @@
             "minecraft:geometry": {
                 "identifier": "geometry.importer",
                 "bone_visibility": {
-                    "module_north": "q.block_property('refinedstorage:module_direction') == 'south'",
-                    "module_south": "q.block_property('refinedstorage:module_direction') == 'north' || !q.block_property('refinedstorage:placed')",
-                    "module_east": "q.block_property('refinedstorage:module_direction') == 'west'",
-                    "module_west": "q.block_property('refinedstorage:module_direction') == 'east'",
-                    "module_up": "q.block_property('refinedstorage:module_direction') == 'down'",
-                    "module_down": "q.block_property('refinedstorage:module_direction') == 'up'",
-                    "north": "q.block_property('refinedstorage:module_direction') != 'south' && q.block_property('refinedstorage:north')",
-                    "south": "q.block_property('refinedstorage:module_direction') != 'north' && q.block_property('refinedstorage:south')",
-                    "east": "q.block_property('refinedstorage:module_direction') != 'west' && q.block_property('refinedstorage:east') || !q.block_property('refinedstorage:placed')",
-                    "west": "q.block_property('refinedstorage:module_direction') != 'east' && q.block_property('refinedstorage:west') || !q.block_property('refinedstorage:placed')",
-                    "up": "q.block_property('refinedstorage:module_direction') != 'down' && q.block_property('refinedstorage:up')",
-                    "down": "q.block_property('refinedstorage:module_direction') != 'up' && q.block_property('refinedstorage:down')"
+                    "module_north": "q.block_property('minecraft:block_face') == 'south'",
+                    "module_south": "q.block_property('minecraft:block_face') == 'north' || !q.block_property('refinedstorage:placed')",
+                    "module_east": "q.block_property('minecraft:block_face') == 'west'",
+                    "module_west": "q.block_property('minecraft:block_face') == 'east'",
+                    "module_up": "q.block_property('minecraft:block_face') == 'down' && q.block_property('refinedstorage:placed')",
+                    "module_down": "q.block_property('minecraft:block_face') == 'up'",
+                    "north": "!q.block_property('minecraft:block_face') == 'south' && q.block_property('refinedstorage:north')",
+                    "south": "!q.block_property('minecraft:block_face') == 'north' && q.block_property('refinedstorage:south')",
+                    "east": "!q.block_property('minecraft:block_face') == 'west' && q.block_property('refinedstorage:east') || !q.block_property('refinedstorage:placed')",
+                    "west": "!q.block_property('minecraft:block_face') == 'east' && q.block_property('refinedstorage:west') || !q.block_property('refinedstorage:placed')",
+                    "up": "!q.block_property('minecraft:block_face') == 'down' && q.block_property('refinedstorage:up') && q.block_property('refinedstorage:placed')",
+                    "down": "!q.block_property('minecraft:block_face') == 'up' && q.block_property('refinedstorage:down')"
                 }
             },
             "minecraft:material_instances": {
@@ -86,46 +78,14 @@
                     "ambient_occlusion": false
                 }
             },
-            "minecraft:queued_ticking": {
-                "interval_range": [
-                    0,
-                    0
-                ],
-                "looping": true,
-                "on_tick": {
-                    "event": "refinedstorage:component_connect"
-                }
-            },
-            "minecraft:on_placed": {
-                "event": "refinedstorage:placed"
-            },
             "minecraft:on_player_placing": {
-                "event": "refinedstorage:player_placed"
+                "event": "refinedstorage:component_placed"
             }
         },
         "events": {
-            "refinedstorage:component_connect": {
+            "refinedstorage:component_placed": {
                 "set_block_property": {
-                    "refinedstorage:north": "q.block_neighbor_has_any_tag(0, 0, -1, 'refinedstorage:component')",
-                    "refinedstorage:south": "q.block_neighbor_has_any_tag(0, 0, 1, 'refinedstorage:component')",
-                    "refinedstorage:east": "q.block_neighbor_has_any_tag(1, 0, 0, 'refinedstorage:component')",
-                    "refinedstorage:west": "q.block_neighbor_has_any_tag(-1, 0, 0, 'refinedstorage:component')",
-                    "refinedstorage:up": "q.block_neighbor_has_any_tag(0, 1, 0, 'refinedstorage:component')",
-                    "refinedstorage:down": "q.block_neighbor_has_any_tag(0, -1, 0, 'refinedstorage:component')"
-                }
-            },
-            "refinedstorage:player_placed": {
-                "set_block_property": {
-                    "refinedstorage:module_direction": "q.block_property('minecraft:block_face')"
-                }
-            },
-            "refinedstorage:placed": {
-                "set_block_property": {
-                    "refinedstorage:module_direction": "q.block_property('minecraft:block_face')",
                     "refinedstorage:placed": true
-                },
-                "run_command": {
-                    "command": "/execute positioned ~~~ unless entity @e[type=refinedstorage:importer, c=1, r=0.5] run summon refinedstorage:importer"
                 }
             }
         }

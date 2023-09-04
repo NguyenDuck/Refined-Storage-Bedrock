@@ -1,0 +1,145 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "refinedstorage:security_manager",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.refinedstorage.utility"
+            },
+            "properties": {
+                "refinedstorage:enabled": [
+                    false,
+                    true
+                ],
+                "refinedstorage:placed": [
+                    false,
+                    true
+                ]
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ],
+                    "y_rotation_offset": 180.0
+                }
+            }
+        },
+        "components": {
+            "tag:refinedstorage:component": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.75
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
+            },
+            "minecraft:material_instances": {
+                "north": {
+                    "texture": "security_manager_north_on"
+                },
+                "south": {
+                    "texture": "security_manager_south_on"
+                },
+                "east": {
+                    "texture": "security_manager_east_on"
+                },
+                "west": {
+                    "texture": "security_manager_west_on"
+                },
+                "up": {
+                    "texture": "security_manager_up_on"
+                },
+                "down": {
+                    "texture": "general_down"
+                }
+            },
+            "minecraft:unit_cube": {},
+            "minecraft:on_player_placing": {
+                "event": "refinedstorage:component_placed"
+            }
+        },
+        "events": {
+            "refinedstorage:component_placed": {
+                "set_block_property": {
+                    "refinedstorage:placed": true
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_property('refinedstorage:placed') && !q.block_property('refinedstorage:enabled')",
+                "components": {
+                    "minecraft:material_instances": {
+                        "north": {
+                            "texture": "security_manager_north_off"
+                        },
+                        "south": {
+                            "texture": "security_manager_south_off"
+                        },
+                        "east": {
+                            "texture": "security_manager_east_off"
+                        },
+                        "west": {
+                            "texture": "security_manager_west_off"
+                        },
+                        "up": {
+                            "texture": "security_manager_up_off"
+                        },
+                        "down": {
+                            "texture": "general_down"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_property('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
